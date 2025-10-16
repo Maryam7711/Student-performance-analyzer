@@ -42,3 +42,22 @@ for student in students:
 print("\n---- Department-wise Toppers ----")
 for dept, topper in department_toppers.items():
     print(f"{dept}: {topper['name']} (Average: {topper['avg']:.2f})")
+
+print("---- Student Performance Summary ----\n")
+
+for student in students:
+    # Calculate average
+    grades = list(student["grades"].values())
+    average_grade = sum(grades) / len(grades)
+
+    if average_grade >= 90:
+        performance = "Excellent"
+    elif average_grade >= 80:
+        performance = "Good"
+    elif average_grade >= 70:
+        performance = "Average"
+    else:
+        performance = "Needs Improvement"
+
+
+    print(f"{student['name']} ({student['department']}) → Average = {average_grade:.2f}, {performance}")
